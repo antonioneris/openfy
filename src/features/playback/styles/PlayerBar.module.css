@@ -1,0 +1,199 @@
+.playerBar {
+  grid-area: player;
+  background: rgba(12, 12, 12, 0.55) !important;
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.trackInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 30%;
+  min-width: 180px;
+}
+
+.trackArt {
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  background-color: var(--bg-surface);
+}
+
+.trackMeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.trackTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-bright);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.trackTitle:hover {
+  text-decoration: underline;
+}
+
+.trackArtist {
+  font-size: 11px;
+  color: var(--text-subdued);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 40%;
+  max-width: 600px;
+}
+
+.controlButtons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.controlBtn {
+  background: none;
+  border: none;
+  color: var(--text-subdued);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-speed), transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.controlBtn:hover {
+  color: var(--text-base);
+  transform: scale(1.18);
+}
+
+.controlBtn.active {
+  color: var(--spotify-green);
+}
+
+.controlBtn:active {
+  transform: scale(0.92);
+}
+
+.controlBtn.playPause {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--text-base);
+  color: var(--bg-base);
+  transition: transform 0.4s cubic-bezier(0.34, 1.8, 0.64, 1), background-color var(--transition-speed);
+}
+
+.controlBtn.playPause:hover {
+  transform: scale(1.12);
+  color: var(--bg-base);
+  background-color: #f6f6f6;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.controlBtn.playPause:active {
+  transform: scale(0.92);
+}
+
+.progressContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  font-size: 11px;
+  color: var(--text-subdued);
+}
+
+.sliderWrapper {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 12px;
+  cursor: pointer;
+}
+
+.sliderInput {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.sliderTrack {
+  width: 100%;
+  height: 4px;
+  background-color: var(--slider-bg);
+  border-radius: 2px;
+  position: relative;
+}
+
+.sliderFill {
+  height: 100%;
+  background-color: var(--slider-active);
+  border-radius: 2px;
+  width: 0%;
+}
+
+.sliderWrapper:hover .sliderFill {
+  background-color: var(--spotify-green);
+}
+
+.sliderThumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  display: none;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sliderWrapper:hover .sliderThumb {
+  display: block;
+}
+
+.playerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 30%;
+  justify-content: flex-end;
+  min-width: 180px;
+}
+
+.volumeContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 120px;
+}

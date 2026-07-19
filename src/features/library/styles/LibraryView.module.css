@@ -1,0 +1,235 @@
+.mobileLibraryView {
+  padding: 16px 16px 32px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.mobileLibraryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.libraryHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.libraryProfileAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #282828;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.libraryHeaderLeft h1 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  font-family: var(--font-family);
+}
+
+.libraryHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+.libraryHeaderBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.libraryPlusDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background-color: #282828;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+  z-index: 1001;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.libraryPlusDropdown button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: var(--font-family);
+}
+
+.libraryPlusDropdown button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.libraryMobileSearchBar {
+  display: flex;
+  align-items: center;
+  background-color: #282828;
+  border-radius: 8px;
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+.libraryMobileSearchBar input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  font-family: var(--font-family);
+}
+
+.libraryMobileSearchBar :global(.search-icon),
+.libraryMobileSearchBar :global(.clear-btn) {
+  color: #b3b3b3;
+}
+
+.libraryMobileSearchBar :global(.clear-btn) {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+.mobileLibraryFilters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.mobileLibraryFilters::-webkit-scrollbar {
+  display: none;
+}
+
+.mobileLibraryFilters .filterPill {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font-family);
+  transition: background-color 0.2s;
+}
+
+.mobileLibraryFilters .filterPill.active {
+  background-color: #fff;
+  color: #000;
+}
+
+.mobileLibraryList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.mobileLibraryItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.mobileLibraryItem .libraryAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.mobileLibraryItem .libraryAvatar.artist {
+  border-radius: 50%;
+}
+
+.mobileLibraryItem .libraryAvatar.placeholder {
+  background-color: #282828;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b3b3b3;
+}
+
+.mobileLibraryItem .libraryAvatar.folder {
+  background-color: rgba(29, 185, 84, 0.1);
+  color: var(--spotify-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileLibraryItem .itemMeta {
+  flex: 1;
+  min-width: 0;
+}
+
+.mobileLibraryItem .itemName {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobileLibraryItem .itemSubtext {
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+.mobileLibraryItem .deleteBtn {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.libraryEmptyMessage {
+  color: #b3b3b3;
+  font-size: 14px;
+  text-align: center;
+  padding: 32px 16px;
+}

@@ -1,0 +1,145 @@
+{
+  "name": "openfy",
+  "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "main": "electron.cjs",
+  "author": {
+    "name": "Antonio Neris",
+    "email": "antonioneris@gmail.com"
+  },
+  "homepage": "https://github.com/antonioneris/openfy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonioneris/openfy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antonioneris/openfy/issues"
+  },
+  "description": "OpenFy - Reprodutor de música local",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "test": "jest",
+    "test:e2e": "npx playwright test",
+    "test:e2e:ui": "npx playwright test --ui",
+    "test:e2e:headed": "npx playwright test --headed",
+    "benchmark:library": "node scripts/benchmarkLibraryScan.cjs",
+    "preview": "vite preview",
+    "electron:dev": "node scripts/electronDev.cjs",
+    "electron:dev:tools": "node scripts/electronDev.cjs --devtools",
+    "electron:build": "npm run build && electron-builder --mac",
+    "electron:build:win": "npm run build && electron-builder --win",
+    "electron:build:linux": "npm run build && electron-builder --linux --x64"
+  },
+  "build": {
+    "appId": "com.openfy.player",
+    "productName": "OpenFy",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "src/electron/**/*",
+      "electron.cjs",
+      "preload.cjs"
+    ],
+    "mac": {
+      "category": "public.app-category.music",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "darkModeSupport": true
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Audio",
+      "icon": "build/icon.png",
+      "maintainer": "Antonio Neris <antonioneris@gmail.com>"
+    },
+    "nsis": {
+      "oneClick": true,
+      "deleteAppDataOnUninstall": true
+    }
+  },
+  "dependencies": {
+    "@capacitor/filesystem": "^8.1.2",
+    "@capacitor/ios": "^8.3.4",
+    "bonjour-service": "^1.4.0",
+    "buffer": "^6.0.3",
+    "castv2-client": "^1.2.0",
+    "idb-keyval": "^6.2.1",
+    "lucide-react": "^0.475.0",
+    "music-metadata-browser": "^2.5.10",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "spotify-url-info": "^3.3.0",
+    "sql.js": "^1.14.1",
+    "ytmusic-api": "^5.3.1"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.3.4",
+    "@capacitor/cli": "^7.6.5",
+    "@capacitor/core": "^8.3.4",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.60.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.12.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/sql.js": "^1.4.11",
+    "@vitejs/plugin-react": "^6.0.1",
+    "electron": "^36.4.0",
+    "electron-builder": "^26.0.12",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "ts-jest": "^29.4.11",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.59.2",
+    "vite": "^8.0.12"
+  }
+}

@@ -1,0 +1,118 @@
+.meta-editor-container {
+  width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.meta-editor-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-subdued);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  border-radius: 50%;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.meta-editor-close:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.meta-editor-cover {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.meta-editor-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meta-editor-cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-surface-hover);
+}
+
+.meta-editor-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.meta-editor-cover:hover .meta-editor-cover-overlay {
+  opacity: 1;
+}
+
+.meta-editor-fields label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-subdued);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meta-editor-fields .system-modal-input {
+  margin-bottom: 16px;
+}
+
+.meta-editor-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.meta-editor-save-icon {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.meta-editor-error {
+  background-color: rgba(225, 29, 72, 0.15);
+  border: 1px solid rgb(225, 29, 72);
+  color: #ff4d6d;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .meta-editor-cover {
+    width: 120px;
+    height: 120px;
+  }
+
+  .meta-editor-row {
+    grid-template-columns: 1fr;
+  }
+}

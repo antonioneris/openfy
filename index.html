@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenFy</title>
+    <script>
+      // globalThis polyfill for older Android WebViews
+      if (typeof globalThis === 'undefined') {
+        (function() {
+          if (typeof self !== 'undefined') {
+            self.globalThis = self;
+          } else if (typeof window !== 'undefined') {
+            window.globalThis = window;
+          } else if (typeof global !== 'undefined') {
+            global.globalThis = global;
+          } else {
+            this.globalThis = this;
+          }
+        })();
+      }
+
+      // Safe Error Dashboard Overlay for debugging hybrid apps on devices
+      window.addEventListener('error', function(e) {
+        var errorDiv = document.getElementById('debug-error-overlay');
+        if (!errorDiv) {
+          errorDiv = document.createElement('div');
+          errorDiv.id = 'debug-error-overlay';
+          errorDiv.style.position = 'fixed';
+          errorDiv.style.top = '0';
+          errorDiv.style.left = '0';
+          errorDiv.style.width = '100vw';
+          errorDiv.style.height = '100vh';
+          errorDiv.style.backgroundColor = 'rgba(0,0,0,0.95)';
+          errorDiv.style.color = '#ff5555';
+          errorDiv.style.padding = '24px';
+          errorDiv.style.zIndex = '999999';
+          errorDiv.style.fontFamily = 'monospace';
+          errorDiv.style.fontSize = '14px';
+          errorDiv.style.lineHeight = '1.5';
+          errorDiv.style.overflowY = 'auto';
+          errorDiv.style.boxSizing = 'border-box';
+          document.body.appendChild(errorDiv);
+        }
+        errorDiv.innerHTML = '<h2 style="color: #ffffff; margin-bottom: 16px;">Erro de Inicialização (JS Error)</h2>' +
+          '<strong>Mensagem:</strong> ' + e.message + '<br>' +
+          '<strong>Arquivo:</strong> ' + e.filename + '<br>' +
+          '<strong>Linha/Col:</strong> ' + e.lineno + ':' + e.colno + '<br><br>' +
+          '<strong>Pilha de Execução (Stack):</strong><br>' +
+          '<pre style="background: #1e1e1e; padding: 12px; border-radius: 4px; color: #e5c07b; overflow-x: auto;">' + (e.error ? e.error.stack : 'Indisponível') + '</pre>';
+      });
+
+      window.addEventListener('unhandledrejection', function(e) {
+        var errorDiv = document.getElementById('debug-error-overlay');
+        if (!errorDiv) {
+          errorDiv = document.createElement('div');
+          errorDiv.id = 'debug-error-overlay';
+          errorDiv.style.position = 'fixed';
+          errorDiv.style.top = '0';
+          errorDiv.style.left = '0';
+          errorDiv.style.width = '100vw';
+          errorDiv.style.height = '100vh';
+          errorDiv.style.backgroundColor = 'rgba(0,0,0,0.95)';
+          errorDiv.style.color = '#ff5555';
+          errorDiv.style.padding = '24px';
+          errorDiv.style.zIndex = '999999';
+          errorDiv.style.fontFamily = 'monospace';
+          errorDiv.style.fontSize = '14px';
+          errorDiv.style.lineHeight = '1.5';
+          errorDiv.style.overflowY = 'auto';
+          errorDiv.style.boxSizing = 'border-box';
+          document.body.appendChild(errorDiv);
+        }
+        errorDiv.innerHTML = '<h2 style="color: #ffffff; margin-bottom: 16px;">Rejeição de Promise não Tratada</h2>' +
+          '<strong>Motivo (Reason):</strong> ' + e.reason + '<br><br>' +
+          '<strong>Pilha (se disponível):</strong><br>' +
+          '<pre style="background: #1e1e1e; padding: 12px; border-radius: 4px; color: #e5c07b; overflow-x: auto;">' + (e.reason && e.reason.stack ? e.reason.stack : 'Nenhuma pilha capturada') + '</pre>';
+      });
+    </script>
+
+    <!-- Google Cast SDK for browser-native casting -->
+    <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+    <script>
+      window.__onGCastApiAvailable = function(isAvailable) {
+        if (isAvailable) {
+          // Initialize CastContext
+          setTimeout(function() {
+            try {
+              cast.framework.CastContext.getInstance().setOptions({
+                receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID,
+                autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+              });
+            } catch (err) {
+              console.warn("Failed to initialize Google Cast Context:", err);
+            }
+          }, 1000);
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

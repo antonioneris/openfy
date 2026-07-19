@@ -1,0 +1,235 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: #212121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  -webkit-app-region: drag;
+  box-sizing: border-box;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  -webkit-app-region: drag;
+  user-select: none;
+}
+
+.coverWrapper {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  -webkit-app-region: no-drag;
+}
+
+.coverArt {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.coverArtPlaceholder {
+  background-color: #282828;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.restoreOverlayBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+  -webkit-app-region: no-drag;
+}
+
+.coverWrapper:hover .restoreOverlayBtn {
+  opacity: 1;
+}
+
+.restoreOverlayBtn:hover {
+  color: #007aff;
+}
+
+.mainCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 96px;
+  flex-grow: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.infoRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.metaInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex-grow: 1;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.artist {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.soundwave {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.2px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.soundwaveBar {
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 1px;
+  transition: height 0.2s ease;
+}
+
+.soundwaveBar.bar1 { height: 3px; }
+.soundwaveBar.bar2 { height: 6px; }
+.soundwaveBar.bar3 { height: 9px; }
+.soundwaveBar.bar4 { height: 6px; }
+.soundwaveBar.bar5 { height: 3px; }
+
+.soundwaveActive .soundwaveBar {
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: bounceSoundwave 0.8s ease-in-out infinite alternate;
+}
+
+.soundwaveActive .bar1 { animation-delay: 0.1s; }
+.soundwaveActive .bar2 { animation-delay: 0.3s; }
+.soundwaveActive .bar3 { animation-delay: 0s; }
+.soundwaveActive .bar4 { animation-delay: 0.2s; }
+.soundwaveActive .bar5 { animation-delay: 0.4s; }
+
+@keyframes bounceSoundwave {
+  0% {
+    height: 3px;
+  }
+  100% {
+    height: 14px;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  -webkit-app-region: no-drag;
+}
+
+.controlBtn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 0.2s, transform 0.1s ease;
+}
+
+.controlBtn:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.controlBtn:active {
+  transform: scale(0.95);
+}
+
+.controlBtnPlayPause {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sliderTrack {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-app-region: no-drag;
+}
+
+.sliderFill {
+  height: 100%;
+  background-color: #007aff;
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.timeRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  line-height: 1;
+}

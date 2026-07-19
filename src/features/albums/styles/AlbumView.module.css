@@ -1,0 +1,320 @@
+.albumHeaderContainer {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 40px 0 20px 0;
+}
+
+.albumCoverLg {
+  width: 232px;
+  height: 232px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+}
+
+.albumInfoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.albumTag {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.albumTitleLg {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.albumMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.albumMetaArtist {
+  font-weight: 700;
+}
+
+.albumMetaBullet {
+  color: var(--text-subdued);
+}
+
+.albumMetaSub {
+  color: var(--text-subdued);
+}
+
+/* Action Controls (Play in Album) */
+.actionControls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 12px;
+}
+
+.playCircleLg {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--spotify-green);
+  color: var(--bg-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.4s cubic-bezier(0.34, 1.8, 0.64, 1), background-color var(--transition-speed);
+}
+
+.playCircleLg:hover {
+  transform: scale(1.12);
+  background-color: var(--spotify-green-hover);
+  box-shadow: 0 0 20px rgba(29, 185, 84, 0.4);
+}
+
+.playCircleLg:active {
+  transform: scale(0.92);
+}
+
+.playBtnGreen {
+  background-color: var(--spotify-green);
+  color: #000000;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s, background-color var(--transition-speed);
+}
+
+.playBtnGreen:hover {
+  background-color: var(--spotify-green-hover);
+  transform: scale(1.04);
+}
+
+.playBtnGreen:active {
+  transform: scale(0.96);
+}
+
+/* Tracks Table */
+.tracksTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed;
+}
+
+.tracksTable th {
+  color: var(--text-subdued);
+  font-weight: 400;
+  font-size: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subdued);
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+
+.tracksTable td {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--text-subdued);
+  vertical-align: middle;
+}
+
+.trackRow {
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.trackRow:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.trackRow.active td {
+  color: var(--spotify-green);
+}
+
+.trackRow.active .trackRowTitle {
+  color: var(--spotify-green);
+}
+
+.trackRowNum {
+  width: 50px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.trackRowTitleCol {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.trackRowArt {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.trackRowDetails {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.trackRowTitle {
+  color: var(--text-base);
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trackRowArtist {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trackRowAlbum {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trackRowDuration {
+  text-align: right;
+  width: 80px;
+}
+
+.trackColumnAlbum {
+  display: table-cell;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .albumHeaderContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 16px 24px;
+    background: linear-gradient(180deg, var(--theme-color) 0%, rgba(18, 18, 18, 0.4) 100%);
+    margin: -16px -16px 20px -16px;
+  }
+
+  .albumCoverLg {
+    width: 180px;
+    height: 180px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+
+  .albumInfoContainer {
+    padding: 0;
+  }
+
+  .albumTitleLg {
+    font-size: 26px !important;
+    font-weight: 800;
+    margin: 8px 0;
+    line-height: 1.2;
+  }
+
+  .albumMeta {
+    font-size: 13px;
+    color: var(--text-subdued);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .albumMetaArtist {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .actionControls {
+    justify-content: flex-start;
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+
+  .playCircleLg {
+    width: 50px;
+    height: 50px;
+    background-color: var(--spotify-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+  }
+
+  .trackColumnAlbum {
+    display: none !important;
+  }
+  
+  .tracksTable th, 
+  .tracksTable td {
+    padding: 8px 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .tracksTable th, 
+  .tracksTable td {
+    padding: 8px 4px !important;
+  }
+  
+  .tracksTable th.trackRowNum,
+  .tracksTable td.trackRowNum {
+    display: none !important;
+  }
+}
+
+.exportAlbumBtn {
+  background: none;
+  border: 1px solid #727272;
+  border-radius: 16px;
+  color: var(--text-base);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  height: 32px;
+  padding: 0 16px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.exportAlbumBtn:hover {
+  border-color: #ffffff;
+  transform: scale(1.02);
+}
+
+.exportAlbumBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">OpenFy</title>
+  <desc id="desc">Sua música, do seu jeito.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#09090b"/>
+      <stop offset="0.55" stop-color="#111027"/>
+      <stop offset="1" stop-color="#21104c"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#6d28d9"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="360" rx="30" fill="url(#background)"/>
+  <circle cx="955" cy="160" r="250" fill="url(#glow)"/>
+  <g opacity=".24" fill="none" stroke="#c4b5fd" stroke-width="3">
+    <path d="M770 109c48-31 93-31 141 0s93 31 141 0 93-31 141 0"/>
+    <path d="M740 160c58-38 113-38 171 0s113 38 171 0 113-38 171 0"/>
+    <path d="M770 211c48-31 93-31 141 0s93 31 141 0 93-31 141 0"/>
+  </g>
+  <g transform="translate(88 68)">
+    <circle cx="112" cy="112" r="112" fill="#8b5cf6" opacity=".2" filter="url(#shadow)"/>
+    <path d="M72 20h113c12 0 18 14 11 23l-50 67c-9 12 0 29 15 29h42c12 0 18 14 11 23l-91 122c-8 11-25 5-25-8v-71c0-10-8-18-18-18H34c-12 0-18-14-11-23l70-95c8-11 0-27-14-27H72c-12 0-18-14-11-23z" fill="url(#brand)"/>
+  </g>
+  <text x="365" y="164" fill="#fafafa" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="88" font-weight="800" letter-spacing="-4">OpenFy</text>
+  <text x="370" y="217" fill="#c4b5fd" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="500" letter-spacing="1">SUA MÚSICA, DO SEU JEITO.</text>
+  <rect x="370" y="247" width="262" height="4" rx="2" fill="url(#brand)"/>
+</svg>
